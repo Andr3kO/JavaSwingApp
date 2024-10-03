@@ -4,16 +4,18 @@
  */
 package com.andre.pe.cpresentacion;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author Andre
  */
-public class JFramepPrincipal extends javax.swing.JFrame {
+public class NewJFramePrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form JFramepPrincipal
+     * Creates new form NewJFramePrincipal
      */
-    public JFramepPrincipal() {
+    public NewJFramePrincipal() {
         initComponents();
     }
 
@@ -26,54 +28,45 @@ public class JFramepPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        principal = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        btnMenuCalculadora = new javax.swing.JMenuItem();
-        btnMenuContador = new javax.swing.JMenuItem();
+        Calculadora = new javax.swing.JMenuItem();
+        Contador = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Aplicacion en Java Swing");
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        principal.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout principalLayout = new javax.swing.GroupLayout(principal);
+        principal.setLayout(principalLayout);
+        principalLayout.setHorizontalGroup(
+            principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1200, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 701, Short.MAX_VALUE)
+        principalLayout.setVerticalGroup(
+            principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 192, 203));
-        jMenuBar1.setBorder(null);
-        jMenuBar1.setToolTipText("");
-        jMenuBar1.setFocusCycleRoot(true);
-        jMenuBar1.setName(""); // NOI18N
-        jMenuBar1.setOpaque(true);
-        jMenuBar1.setSelectionModel(null);
+        jMenu1.setText("File");
 
-        jMenu1.setText("Aplicaciones");
-
-        btnMenuCalculadora.setText("Calculadora");
-        btnMenuCalculadora.addActionListener(new java.awt.event.ActionListener() {
+        Calculadora.setText("Calculadora");
+        Calculadora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuCalculadoraActionPerformed(evt);
+                CalculadoraActionPerformed(evt);
             }
         });
-        jMenu1.add(btnMenuCalculadora);
+        jMenu1.add(Calculadora);
 
-        btnMenuContador.setText("Contador");
-        btnMenuContador.addActionListener(new java.awt.event.ActionListener() {
+        Contador.setText("Contador");
+        Contador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuContadorActionPerformed(evt);
+                ContadorActionPerformed(evt);
             }
         });
-        jMenu1.add(btnMenuContador);
+        jMenu1.add(Contador);
 
         jMenuBar1.add(jMenu1);
 
@@ -86,23 +79,38 @@ public class JFramepPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMenuCalculadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuCalculadoraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMenuCalculadoraActionPerformed
+    private void CalculadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculadoraActionPerformed
 
-    private void btnMenuContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuContadorActionPerformed
+        Calculadora cal = new Calculadora();
+        cal.setSize(430, 691);
+        cal.setLocation(0,0);
+        principal.removeAll();
+        principal.add(cal,BorderLayout.CENTER);
+        principal.revalidate();
+        principal.repaint();
+        
+    }//GEN-LAST:event_CalculadoraActionPerformed
+
+    private void ContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnMenuContadorActionPerformed
+        Contador cont = new Contador();
+        cont.setSize(301, 347);
+        cont.setLocation(0,0);
+        principal.removeAll();
+        principal.add(cont,BorderLayout.CENTER);
+        principal.revalidate();
+        principal.repaint();
+    }//GEN-LAST:event_ContadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,30 +129,30 @@ public class JFramepPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFramepPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFramepPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFramepPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFramepPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFramepPrincipal().setVisible(true);
+                new NewJFramePrincipal().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem btnMenuCalculadora;
-    private javax.swing.JMenuItem btnMenuContador;
+    private javax.swing.JMenuItem Calculadora;
+    private javax.swing.JMenuItem Contador;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel principal;
     // End of variables declaration//GEN-END:variables
 }
