@@ -33,6 +33,7 @@ public class NewJFramePrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         Calculadora = new javax.swing.JMenuItem();
         Contador = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,6 +68,14 @@ public class NewJFramePrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(Contador);
+
+        jMenuItem1.setText("Datos Documentó");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
 
@@ -112,6 +121,17 @@ public class NewJFramePrincipal extends javax.swing.JFrame {
         principal.repaint();
     }//GEN-LAST:event_ContadorActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        Datos_Documento dats = new Datos_Documento();
+        dats.setSize(833, 572);
+        dats.setLocation(0,0);
+        principal.removeAll();
+        principal.add(dats,BorderLayout.CENTER);
+        principal.revalidate();
+        principal.repaint();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -153,6 +173,7 @@ public class NewJFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel principal;
     // End of variables declaration//GEN-END:variables
 }
