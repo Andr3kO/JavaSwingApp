@@ -1,26 +1,36 @@
-
 package com.andre.pe.cpresentacion;
 
-/**
- *
- * @author Andre
- */
+
+import com.andre.pe.cnegocio.Datos_DocumentoBO;
 import com.andre.pe.db.Conexion;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet; 
-import java.sql.Date; 
 
-public class Datos_Documento extends javax.swing.JPanel {
+
+
+
+public class Datos_Documento extends javax.swing.JPanel{
+    
+ Datos_DocumentoBO dd = new Datos_DocumentoBO();
+ Datos_Documento tdbo = new Datos_Documento();
+ 
 
     /**
      * Creates new form Datos_Documento
      */
     public Datos_Documento() {
         initComponents();
+        listarDatosDocumento();
+
+       
     }
+    public void listarDatosDocumento(){
+    dd.listarDatosDocumento(TablaDatosDocumento);
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,7 +44,7 @@ public class Datos_Documento extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaDatosDocumento = new javax.swing.JTable();
         btnEliminar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
@@ -61,8 +71,8 @@ public class Datos_Documento extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 0, 24)); // NOI18N
         jLabel1.setText("CRUD DATOS DOCUMENTOS");
 
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 182, 193)));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaDatosDocumento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 182, 193)));
+        TablaDatosDocumento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -73,8 +83,8 @@ public class Datos_Documento extends javax.swing.JPanel {
 
             }
         ));
-        jTable1.setSelectionBackground(new java.awt.Color(255, 182, 193));
-        jScrollPane1.setViewportView(jTable1);
+        TablaDatosDocumento.setSelectionBackground(new java.awt.Color(255, 182, 193));
+        jScrollPane1.setViewportView(TablaDatosDocumento);
 
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -405,6 +415,7 @@ public class Datos_Documento extends javax.swing.JPanel {
     private javax.swing.JTextField FieldIDCliente;
     private javax.swing.JTextField FieldIDDocumentoIdentidad;
     private javax.swing.JTextField FieldNumero;
+    private javax.swing.JTable TablaDatosDocumento;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
@@ -419,6 +430,5 @@ public class Datos_Documento extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

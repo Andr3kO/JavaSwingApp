@@ -5,6 +5,8 @@
 package com.andre.pe.cpresentacion;
 
 import java.awt.BorderLayout;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -18,6 +20,7 @@ public class NewJFramePrincipal extends javax.swing.JFrame {
     public NewJFramePrincipal() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
