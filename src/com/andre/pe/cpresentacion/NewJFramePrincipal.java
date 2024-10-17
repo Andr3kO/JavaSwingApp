@@ -33,15 +33,16 @@ public class NewJFramePrincipal extends javax.swing.JFrame {
 
         principal = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        FILE = new javax.swing.JMenu();
         Calculadora = new javax.swing.JMenuItem();
         Contador = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        Cliente = new javax.swing.JMenuItem();
+        Registro = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        principal.setBackground(new java.awt.Color(255, 255, 255));
+        principal.setBackground(new java.awt.Color(255, 245, 255));
 
         javax.swing.GroupLayout principalLayout = new javax.swing.GroupLayout(principal);
         principal.setLayout(principalLayout);
@@ -54,7 +55,9 @@ public class NewJFramePrincipal extends javax.swing.JFrame {
             .addGap(0, 700, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
+        jMenuBar1.setBackground(new java.awt.Color(255, 245, 255));
+
+        FILE.setText("File");
 
         Calculadora.setText("Calculadora");
         Calculadora.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +65,7 @@ public class NewJFramePrincipal extends javax.swing.JFrame {
                 CalculadoraActionPerformed(evt);
             }
         });
-        jMenu1.add(Calculadora);
+        FILE.add(Calculadora);
 
         Contador.setText("Contador");
         Contador.addActionListener(new java.awt.event.ActionListener() {
@@ -70,17 +73,25 @@ public class NewJFramePrincipal extends javax.swing.JFrame {
                 ContadorActionPerformed(evt);
             }
         });
-        jMenu1.add(Contador);
+        FILE.add(Contador);
 
-        jMenuItem1.setText("Datos Documentó");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        Cliente.setText("Cliente");
+        Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                ClienteActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        FILE.add(Cliente);
 
-        jMenuBar1.add(jMenu1);
+        Registro.setText("Registro");
+        Registro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistroActionPerformed(evt);
+            }
+        });
+        FILE.add(Registro);
+
+        jMenuBar1.add(FILE);
 
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
@@ -124,16 +135,27 @@ public class NewJFramePrincipal extends javax.swing.JFrame {
         principal.repaint();
     }//GEN-LAST:event_ContadorActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteActionPerformed
         // TODO add your handling code here:
-        Datos_Documento dats = new Datos_Documento();
-        dats.setSize(833, 572);
-        dats.setLocation(0,0);
+        JFrameCliente cli = new JFrameCliente();
+        cli.setSize(860, 630);
+        cli.setLocation(0,0);
         principal.removeAll();
-        principal.add(dats,BorderLayout.CENTER);
+        principal.add(cli,BorderLayout.CENTER);
         principal.revalidate();
         principal.repaint();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_ClienteActionPerformed
+
+    private void RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroActionPerformed
+        // TODO add your handling code here:
+        JPPersonaCliente reg = new JPPersonaCliente();
+        reg.setSize(900, 666);
+        reg.setLocation(0,0);
+        principal.removeAll();
+        principal.add(reg,BorderLayout.CENTER);
+        principal.revalidate();
+        principal.repaint();
+    }//GEN-LAST:event_RegistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,11 +194,12 @@ public class NewJFramePrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Calculadora;
+    private javax.swing.JMenuItem Cliente;
     private javax.swing.JMenuItem Contador;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu FILE;
+    private javax.swing.JMenuItem Registro;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel principal;
     // End of variables declaration//GEN-END:variables
 }

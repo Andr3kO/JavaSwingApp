@@ -2,18 +2,19 @@ package com.andre.pe.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * Clase que maneja la conexión a la base de datos Oracle.
  */
 public class Conexion {
 
-    private static Connection con = null;
-    private static String usuario = "RIZ3";
+    private static String usuario = "CAPIBARA";
     private static String contraseña = "123456";
     private static String url = "jdbc:oracle:thin:@localhost:1521:xe";
 
     public static Connection getConnection() {
+        Connection con = null; // Mover la variable aquí para evitar problemas de conexión estática
         try {
             // Cargar el controlador jdbc
             Class.forName("oracle.jdbc.OracleDriver");
@@ -23,32 +24,28 @@ public class Conexion {
             con.setAutoCommit(false);
             System.out.println("Conexión establecida.");
 
-            if (con != null) {
-                System.out.println("Conectado.");
-            } else {
-                System.out.println("No se pudo establecer la conexión.");
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error: Controlador no encontrado - " + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error: No se pudo establecer la conexión - " + e.getMessage());
         }
         return con;
     }
 
-    public void closeConnection() {
+    public static void closeConnection(Connection con) {
         try {
             if (con != null && !con.isClosed()) {
                 con.close();
                 System.out.println("Conexión cerrada.");
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error al cerrar la conexión: " + e.getMessage());
         }
     }
 
     public static void main(String[] args) {
-        Conexion.getConnection();
+        Connection conexion = getConnection();
+        
     }
 }
-
 
